@@ -3,6 +3,8 @@
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <sysexits.h>
 #include <signal.h>
 #include <getopt.h>
