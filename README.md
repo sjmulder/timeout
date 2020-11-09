@@ -18,7 +18,7 @@ Exit status
 -----------
 Passes through the exit status of program.
 
-Exits 64 (EX_USAGE) on missing or invalid argument, 127 if the program
+Exits 64 (`EX_USAGE`) on missing or invalid argument, 127 if *program*
 cannot be started, or 1 on any other error.
 
 Example
