@@ -81,7 +81,7 @@ main(int argc, char **argv)
 		return ret;
 	else if (errno == EINTR && alarmed) {
 		if (!quiet)
-			warnx("%s exceeded %s", argv[1]);
+			warnx("%s exceeded %s", argv[1], argv[0]);
 		kill(child, SIGHUP);
 	} else
 		err(1, "wait(%s)", argv[1]);
