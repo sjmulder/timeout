@@ -1,0 +1,56 @@
+.Dd November 9, 2020
+.Dt TIMEOUT 1
+.Os
+.Sh NAME
+.Nm timeout
+.Nd Run a program with a timeout
+.Sh SYNOPSIS
+.Nm
+.Op Fl q
+.Op Fl s Ar signal
+.Ar timeout
+.Ar program
+.Op Ar argument ...
+.Sh DESCRIPTION
+Starts
+.Ar program .
+If it does not terminate within the given
+.Ar timeout ,
+the program is killed with
+.Ar signal
+.Pq Dv SIGHUP by default
+and a message is printed to standard error.
+The message can be surpressed with
+.Fl q .
+.Pp
+The
+.Ar timeout
+can be a bare number of seconds, or suffixed with
+.Sq s
+for seconds,
+.Sq m
+for minutes, or
+.Sq h
+for hours.
+The
+.Ar signal ,
+if given, must be numeric.
+.Sh EXIT STATUS
+Passes through the exit status of
+.Ar program .
+.Pp
+Exits 64
+.Pq Dv EX_USAGE
+on missing or invalid argument,
+127 if the program cannot be started, or
+1 on any other error.
+.Sh EXAMPLES
+Run a configure script with a 10 minute timeout:
+.Bd -literal -offset indent
+$ timeout 10m ./configure
+\&...
+timeout: ./configure exceeded 10m
+.Ed
+.Sh AUTHORS
+.An Sijmen J. Mulder
+.Aq Mt ik@sjmulder.nl
